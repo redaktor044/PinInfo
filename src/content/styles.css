@@ -3,7 +3,7 @@
   z-index: 2147483647;
   left: 8px;
   bottom: 8px;
-  width: 190px;
+  width: 210px;
   box-sizing: border-box;
   padding: 10px;
   border-radius: 10px;
@@ -13,28 +13,12 @@
   box-shadow: 0 6px 24px rgba(0,0,0,.28);
   pointer-events: auto;
 }
-
-.pininfo-header {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 800;
-  letter-spacing: .05em;
-  margin-bottom: 7px;
-}
-
-.pininfo-header span { opacity: .6; font-size: 9px; }
-.pininfo-row { display: flex; justify-content: space-between; gap: 8px; margin: 4px 0; }
-.pininfo-row span { opacity: .75; overflow: hidden; text-overflow: ellipsis; }
-.pininfo-overlay button {
-  width: 100%;
-  margin-top: 8px;
-  border: 0;
-  border-radius: 7px;
-  padding: 7px;
-  background: #e60023;
-  color: white;
-  font-size: 10px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.pininfo-overlay button:hover { filter: brightness(1.08); }
+.pininfo-header { display:flex; justify-content:space-between; font-weight:800; letter-spacing:.05em; margin-bottom:7px; }
+.pininfo-header span { opacity:.6; font-size:9px; }
+.pininfo-row { display:flex; justify-content:space-between; gap:8px; margin:4px 0; }
+.pininfo-row span { opacity:.75; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.pininfo-actions { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.pininfo-overlay button { width:100%; margin-top:8px; border:0; border-radius:7px; padding:7px 5px; background:#e60023; color:white; font-size:9px; font-weight:800; cursor:pointer; }
+.pininfo-overlay button:hover { filter:brightness(1.08); }
+.pininfo-overlay .pininfo-favorite { background:#333; }
+.pininfo-overlay .pininfo-favorite.is-favorite { background:#f2b01e; color:#111; }
