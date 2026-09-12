@@ -1,0 +1,9 @@
+body { margin: 0; width: 280px; background: #111116; color: #fff; font: 14px/1.4 Arial, sans-serif; }
+main { padding: 18px; }
+h1 { margin: 0; font-size: 24px; }
+p { color: #aaa; }
+.status { margin: 18px 0; padding: 14px; border-radius: 10px; background: #1c1c23; font-size: 28px; font-weight: 800; }
+.status small { font-size: 12px; color: #aaa; }
+button { width: 100%; margin: 5px 0; padding: 9px; border: 0; border-radius: 7px; cursor: pointer; font-weight: 700; }
+#export { background: #e60023; color: white; }
+.note { font-size: 11px; }
