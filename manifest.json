@@ -1,15 +1,15 @@
 {
   "manifest_version": 3,
   "name": "PinInfo",
-  "version": "0.1.0",
-  "description": "Pinterest research assistant: detects visible Pins and exposes publicly observable metadata without bypassing Pinterest controls.",
+  "version": "0.1.1",
+  "description": "Pinterest research assistant with a privacy-safe diagnostic mode for mapping publicly observable Pin data.",
   "permissions": ["storage"],
   "host_permissions": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
   "action": { "default_popup": "src/popup/popup.html" },
   "background": { "service_worker": "src/background/service-worker.js", "type": "module" },
   "content_scripts": [{
     "matches": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
-    "js": ["src/content/pininfo-content.js"],
+    "js": ["src/content/pininfo-content.js", "src/content/diagnostics.js"],
     "css": ["src/content/styles.css"],
     "run_at": "document_idle"
   }],
