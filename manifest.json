@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "PinInfo",
-  "version": "0.2.0",
-  "description": "Pinterest research assistant with per-Pin research bubbles, favorites, diagnostics and exports.",
-  "permissions": ["storage"],
+  "version": "0.3.0",
+  "description": "Pinterest research engine with per-Pin intelligence bubbles, automatic collection, scoring, filters and exports.",
+  "permissions": ["storage", "tabs"],
   "host_permissions": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
   "action": { "default_popup": "src/popup/popup.html" },
   "background": { "service_worker": "src/background/service-worker.js", "type": "module" },
