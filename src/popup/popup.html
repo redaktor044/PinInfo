@@ -10,10 +10,19 @@
   <main>
     <h1>PinInfo</h1>
     <p>Pinterest research assistant</p>
-    <div class="status"><span id="count">0</span><small> saved Pins</small></div>
-    <button id="export">Export JSON</button>
-    <button id="clear">Clear research</button>
-    <p class="note">v0.1 — DOM observation only. No private data or security bypass.</p>
+    <section class="stats">
+      <div><strong id="researchCount">0</strong><small> research</small></div>
+      <div><strong id="favoriteCount">0</strong><small> favorites</small></div>
+    </section>
+    <div class="actions">
+      <button id="exportCsv">Export CSV</button>
+      <button id="exportJson">Export JSON</button>
+    </div>
+    <div class="actions secondary">
+      <button id="clearResearch">Clear research</button>
+      <button id="clearFavorites">Clear favorites</button>
+    </div>
+    <p class="note">v0.1.1 — local research data. No private data or security bypass.</p>
   </main>
   <script src="popup.js"></script>
 </body>
