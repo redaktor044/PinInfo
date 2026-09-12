@@ -1,12 +1,11 @@
 {
   "manifest_version": 3,
   "name": "PinInfo",
-  "version": "0.1.2",
-  "description": "Pinterest research assistant with privacy-safe diagnostics, research collections and favorites.",
-  "permissions": ["storage", "downloads"],
+  "version": "0.2.0",
+  "description": "Pinterest research assistant with per-Pin research bubbles, favorites, diagnostics and exports.",
+  "permissions": ["storage"],
   "host_permissions": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
-  "action": { "default_popup": "src/popup/popup.html", "default_icon": { "16": "assets/icon.svg", "32": "assets/icon.svg", "48": "assets/icon.svg", "128": "assets/icon.svg" } },
-  "icons": { "16": "assets/icon.svg", "32": "assets/icon.svg", "48": "assets/icon.svg", "128": "assets/icon.svg" },
+  "action": { "default_popup": "src/popup/popup.html" },
   "background": { "service_worker": "src/background/service-worker.js", "type": "module" },
   "content_scripts": [{
     "matches": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
