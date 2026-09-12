@@ -1,11 +1,12 @@
 {
   "manifest_version": 3,
   "name": "PinInfo",
-  "version": "0.1.1",
-  "description": "Pinterest research assistant with a privacy-safe diagnostic mode for mapping publicly observable Pin data.",
-  "permissions": ["storage"],
+  "version": "0.1.2",
+  "description": "Pinterest research assistant with privacy-safe diagnostics, research collections and favorites.",
+  "permissions": ["storage", "downloads"],
   "host_permissions": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
-  "action": { "default_popup": "src/popup/popup.html" },
+  "action": { "default_popup": "src/popup/popup.html", "default_icon": { "16": "assets/icon.svg", "32": "assets/icon.svg", "48": "assets/icon.svg", "128": "assets/icon.svg" } },
+  "icons": { "16": "assets/icon.svg", "32": "assets/icon.svg", "48": "assets/icon.svg", "128": "assets/icon.svg" },
   "background": { "service_worker": "src/background/service-worker.js", "type": "module" },
   "content_scripts": [{
     "matches": ["https://www.pinterest.com/*", "https://pinterest.com/*"],
