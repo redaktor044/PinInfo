@@ -30,11 +30,26 @@ function parsePin(anchor) {
   };
 }
 
-function saveResearch(pin, button) {
-  chrome.runtime.sendMessage({ type: 'PININFO_SAVE_RESEARCH', pin }, (response) => {
-    if (chrome.runtime.lastError || !response?.ok) return;
-    button.textContent = 'SAVED ✓';
+function send(type, pin) {
+  return new Promise((resolve) => {
+    chrome.runtime.sendMessage({ type, pin }, (response) => {
+      if (chrome.runtime.lastError) return resolve({ ok: false, error: chrome.runtime.lastError.message });
+      resolve(response || { ok: false });
+    });
   });
+}
+
+async function toggleFavorite(pin, button) {
+  const result = await send('PININFO_TOGGLE_FAVORITE', pin);
+  if (!result.ok) return;
+  button.textContent = result.favorite ? '★ FAVORITE' : '☆ FAVORITE';
+  button.classList.toggle('is-favorite', result.favorite);
+}
+
+async function saveResearch(pin, button) {
+  const result = await send('PININFO_SAVE_RESEARCH', pin);
+  if (!result.ok) return;
+  button.textContent = 'SAVED ✓';
 }
 
 function render(anchor, pin) {
@@ -49,9 +64,12 @@ function render(anchor, pin) {
   card.innerHTML = `<div class="pininfo-header">PININFO <span>RESEARCH</span></div>
     <div class="pininfo-row"><b>Pin ID</b><span>${pin.id ?? '—'}</span></div>
     <div class="pininfo-row"><b>Title</b><span>${pin.title ?? '—'}</span></div>
-    <button type="button">SAVE TO RESEARCH</button>`;
-  const button = card.querySelector('button');
-  button.addEventListener('click', () => saveResearch(pin, button));
+    <div class="pininfo-actions">
+      <button type="button" class="pininfo-favorite">☆ FAVORITE</button>
+      <button type="button" class="pininfo-research">SAVE TO RESEARCH</button>
+    </div>`;
+  card.querySelector('.pininfo-favorite').addEventListener('click', (event) => toggleFavorite(pin, event.currentTarget));
+  card.querySelector('.pininfo-research').addEventListener('click', (event) => saveResearch(pin, event.currentTarget));
   host.appendChild(card);
 }
 
